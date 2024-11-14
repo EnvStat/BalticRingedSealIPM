@@ -1,0 +1,3 @@
+
+Source data files are processed and organized forms of the raw data files in the folder "raw_data". Processing is performed by the R script "...../ringed_seal_code/process_data.R".
+

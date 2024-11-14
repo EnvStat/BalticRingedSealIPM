@@ -1,0 +1,16 @@
+
+This folder contains outputs from all alternative models and sensitivities. Below are descriptions of each model.
+
+1: Thinned aerial survey data
+2: Pre-2012 aerial survey data
+3: Post-2012 aerial survey data
+4: Thinned reproduction data
+5: Post-2007 reproduction data
+6: Thinned harvest totals
+7: Thinned dead sample data
+m1: simpler alternative to haul out probability model
+m2: prior sensitivity for the baseline haul out probability parameter, w (left shifted)
+m3: prior sensitivity for the baseline haul out probability parameter, w (right shifted)
+
+"prior_posterior"
+	- Folder containing results of prior-posterior comparisons.

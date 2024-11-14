@@ -1,0 +1,25 @@
+
+"SW_data_prep.R" and "FI_data_prep.R"
+	R scripts that process the raw data from Sweden and Finland, creating 
+	simplified data files in the folder ".../ringed_seal_data/source_data/"
+
+
+"SW_hunt_data_prep.R" and "FI_hunt_data_prep.R"
+	R scripts that prepare hunting related data for Sweden and Finland that 
+	are used as input in the Stan model.
+
+"bycatch_data_prep.R"
+	R script that prepares bycatch related data that are used as input in
+	the Stan model.
+
+"reproduction_data_prep.R"
+	R script that prepares reproduction related data that are used as input in
+	the Stan model.
+
+"sampling_bias_data_prep.R"
+	R script that prepares data related to sampling bias in Swedish hunting 
+	during the spring, that are used as input in the Stan model.
+
+"ice_data_prep.R"
+	R script that computes annual ice covered area in the Bothnian Bay in late 
+	April from raw raster files obtained from Finnish Meteorological Institute.

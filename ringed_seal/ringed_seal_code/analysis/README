@@ -1,0 +1,27 @@
+
+"generate_outputs.R"
+	R scripts that extracts posterior samples of model parameters 
+	and outputs most of the results and plots used in the manuscript
+	into the folder ".../ringed_seal_results/".
+
+"post_pred_checks.R"
+	R script that generates plots of posterior predictive checks and
+	outputs them into ".../ringed_seal_results/plots/".
+
+"critical_hunting.R"
+	R script that generates Figure 7a in the manuscript and prints the
+	posterior quantiles for the "critical hunting level" in 2023.
+
+"scenario_predict.R"
+	R script that generates Figure 7b in the manuscript.
+
+"PSIS.R"
+	R script that computes loo-cv using Pareto-smoothed importance sampling for models
+	fitted to each data subset, and outputs the results into the subfolders in ".../ringed_seal_results/sensitivities/".
+
+"prior_vs_posterior.R"
+	R script that generates prior-posterior comparison plots, as well as prior-posterior and 
+	posterior-posterior overlaps, and outputs the results into ".../ringed_seal_results/sensitivities/prior_posterior/".
+
+"predict_hunting_effort.R"
+	R script that generates plots of out-of-sample predictions of the distribution of harvests throughout each hunting season, and compares it to the observed data distribution, and outputs the plots into ".../ringed_seal_results/plots/".
