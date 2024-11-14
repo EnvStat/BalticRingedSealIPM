@@ -1,5 +1,0 @@
-
-Model data files are summarized forms of the source data files in the folder ".../ringed_seal_data/source_data". Processing is performed by the R script ".../ringed_seal_code/process_data.R".
-
-Model data is used as input for the Stan model ".../ringed_seal_code/ringed_seal.stan", and is imported using the "load_data()" function in the R script ".../ringed_seal_code/functions/load_data_function.R".
-

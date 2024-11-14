@@ -1,6 +1,0 @@
-
-"model_data"
-	- contains all summarized data files that are used as input into the Stan model.
-
-"source_data"
-	- contains all source data that is required to produce "model_data", including the raw data.
