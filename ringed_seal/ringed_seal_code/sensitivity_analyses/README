@@ -1,0 +1,13 @@
+
+"ringed_seal_simplified.stan"
+	Stan code for model with simplified haul out probability model.
+
+"fit_data_sensitivities.R"
+	R script that runs Stan models for all data subsets and outputs the posterior model fits into the "/ringed_seal_results/sensitivities/1-7" folders.
+
+"fit_model_sensitivities.R"
+	R script that runs Stan models for prior sensitivities and simplified haul out probability model, and outputs the posterior model fits into the "/ringed_seal_results/sensitivities/m1-m3" folders.
+
+"get_sensitivity_results.R"
+	R script that takes posterior samples of the parameters as input and runs all analyses for each alternative model. Plots and parameter estimates are saved in the "ringed_seal_results/sensitivities/" folder.
+

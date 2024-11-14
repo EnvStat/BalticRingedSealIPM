@@ -1,0 +1,13 @@
+
+"plots"
+	- Folder that contains plots of model results.
+
+"sensitivities"
+	- Folder that contains model outputs for all alternative models and sensitivities.
+
+"estimates.csv"
+	- contains posterior quantiles for all model parameters.
+
+"loo.csv"
+	- leave-one-out cross-validation results.
+
