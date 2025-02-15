@@ -45,6 +45,7 @@ waic <- c(sum(survey_loo$waic), sum(reproduction_loo$waic), sum(hb_sw_loo$waic),
 mean.df <- data.frame(Data = factor(labs, levels=labs), Effect = k_mean)
 ggplot(data=mean.df, aes(x=Data, y=Effect)) +
   geom_bar(stat="identity") +
+  labs(x = 'Data type', y = 'Mean Pareto-k') + 
   theme_classic() +
   theme(text = element_text(size=font_size), 
         axis.text.x=element_text(angle=90, hjust=1, vjust=0.5))
@@ -53,6 +54,7 @@ ggsave(filename='pareto_k_mean.png', width=6, height=10, path=paste0(output_dire
 sum.df <- data.frame(Data = factor(labs, levels=labs), Effect = k_sum)
 ggplot(data=sum.df, aes(x=Data, y=Effect)) +
   geom_bar(stat="identity") +
+  labs(x = 'Data type', y = 'Total Pareto-k') +
   theme_classic() +
   theme(text = element_text(size=font_size), 
         axis.text.x=element_text(angle=90, hjust=1, vjust=0.5))

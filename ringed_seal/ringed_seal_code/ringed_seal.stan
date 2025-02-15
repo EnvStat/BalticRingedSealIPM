@@ -434,7 +434,7 @@ transformed parameters {
   // birth
   b_min = b_scale*b_max;
   b0 = (b_min + (b_max-b_min)*inv_logit(X_b*beta));
-  p_max = b_max*exp((1-tau_p*(2-tau_p))*theta_0);
+  p_max = b_max*exp((1-tau_p^2)*theta_0);
   
   // haul-out probability
   w = w_bounds[1]+(w_bounds[2]-w_bounds[1])*w_unscaled;
@@ -473,7 +473,7 @@ transformed parameters {
     //////////////// Aging and birth //////////////////////////////////
     if(i > 1) {
       b[i] = DD(b0[i], sum(N[,i-1]), theta_0, theta_1); // density dependent birth rate
-      p[i-1] = exp(log(b0[i])+theta_0*(1-tau_p*(2-tau_p)*exp(theta_1*sum(N[,i-1])))); // pregnancy rate during the previous fall
+      p[i-1] = exp(log(b0[i])+theta_0*(1-tau_p^2*exp(theta_1*sum(N[,i-1])))); // pregnancy rate during the previous fall
 
       N[,i] = A*U[,i-1]; // move seals to the next age class
 
@@ -613,10 +613,10 @@ transformed parameters {
   N_w[t+1] = (phi_tau_0_fi .* w_vec)' * N[,t+1];
   
   // latest estimate of fall pregnancy rate (2022)
-  p[t] = exp( log(b0[t+1]) + theta_0*(1 - tau_p*(2-tau_p)*exp(theta_1*sum(N[,t]))) );
+  p[t] = exp( log(b0[t+1]) + theta_0*(1 - tau_p^2*exp(theta_1*sum(N[,t]))) );
   
   // minimum historical pregnancy rate assuming population size was the same as 1988
-  p_min = exp( log(b_min) + theta_0*(1 - tau_p*(2-tau_p)*exp(theta_1*sum(N[,1]))) );
+  p_min = exp( log(b_min) + theta_0*(1 - tau_p^2*exp(theta_1*sum(N[,1]))) );
 
 }
 

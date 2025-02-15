@@ -18,9 +18,9 @@ for(i in 1:length(sensitivity_data)) {
 }
 
 # prior and model sensitivity samples
-for(i in 1:3) {
-  output_directory <- paste0('ringed_seal_results/sensitivities/m',i,'/')
-  model <- readRDS(paste0(output_directory, 'ringed_seal_post_sens_m',i,'.rds'))
+for(i in 1:4) {
+  output_directory <- paste0('ringed_seal_results/sensitivities/m',i-1,'/')
+  model <- readRDS(paste0(output_directory, 'ringed_seal_post_sens_m',i-1,'.rds'))
   samples[[1+length(sensitivity_data)+i]] <- rstan::extract(model)
 }
 
@@ -59,8 +59,9 @@ prior_posterior <- function(x, prior_dens, posterior_samples, xlim,
   }
   
   # y-coordinates for labels
-  label_ys <- label_y*max(c(prior_dens, df$y)) - seq(0, 0.4*max(c(prior_dens, df$y)), length.out = length(idx))
-  
+  y_coords <- df$y[df$sensitivity %in% idx] # posterior densities for data sens. to adjust y-axis scale
+  label_ys <- label_y*max(c(prior_dens, y_coords)) - seq(0, 0.4*max(c(prior_dens, y_coords)), length.out = length(idx))
+
   # filter data for plotting
   df.plot <- df[which(df$sensitivity %in% c(0,idx)),]
   summaries.plot <- summaries[which(summaries$sensitivity %in% idx),]
@@ -93,7 +94,8 @@ n_samps <- nrow(samples[[1]]$n0) # number of posterior draws
 
 # posterior samples to exclude
 excl <- matrix(FALSE, nrow = n_samps, ncol = length(samples))
-excl[1:(n_samps/4),7] <- TRUE # remove chain 1 in reduced harvest totals model due to poor mixing
+excl[1:(n_samps/4),6:7] <- TRUE # remove chain 1 due to poor mixing
+excl[(1/2*n_samps):(3/4*n_samps),8] <- TRUE # remove chain 3 due to poor mixing
 
 # initial population size
 lb <- 0; ub <- 30000; n <- 1500;

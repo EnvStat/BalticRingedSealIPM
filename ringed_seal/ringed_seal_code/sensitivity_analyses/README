@@ -2,6 +2,9 @@
 "ringed_seal_simplified.stan"
 	Stan code for model with simplified haul out probability model.
 
+"ringed_seal_ploss_decr.stan"
+	Stan code for alternative model with linearly decreasing rate of pregnancy loss.
+
 "fit_data_sensitivities.R"
 	R script that runs Stan models for all data subsets and outputs the posterior model fits into the "/ringed_seal_results/sensitivities/1-7" folders.
 

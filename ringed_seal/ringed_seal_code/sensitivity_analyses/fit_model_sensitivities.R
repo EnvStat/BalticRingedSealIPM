@@ -68,7 +68,29 @@ iter <- 4000
 warmup <- iter/2
 
 ##################################################
-######### Fit simplified model ###################
+####### Fit alternative pregnancy loss model #####
+##################################################
+
+model <- stan_model(paste0(code_directory, 'sensitivity_analyses/ringed_seal_ploss_decr.stan'))
+
+output_directory <- paste0('ringed_seal_results/sensitivities/m0/')
+
+stan_data <- c(data, indices)
+
+# run Stan model
+fit <- sampling(model, data = stan_data, seed=seed,
+                iter = iter, warmup=warmup, chains = 4, 
+                init = list(generate.inits(), generate.inits(),
+                            generate.inits(), generate.inits()),
+                chain_id = c(1,2,3,4), control = list(adapt_delta=0.97, max_treedepth = 11))
+
+####### Save Stan output ###########
+
+fit@stanmodel@dso <- new("cxxdso")
+saveRDS(fit, file = paste0(output_directory, 'ringed_seal_post_sens_m0.rds'))
+
+##################################################
+######### Fit simplified haul-out model ##########
 ##################################################
 
 model <- stan_model(paste0(code_directory, 'sensitivity_analyses/ringed_seal_simplified.stan'))
@@ -108,7 +130,7 @@ for(i in 1:nrow(w_bounds)) {
                   iter = iter, warmup=warmup, chains = 4, 
                   init = list(generate.inits(), generate.inits(),
                               generate.inits(), generate.inits()),
-                  chain_id = c(1,2,3,4), control = list(adapt_delta=0.95, max_treedepth = 11))
+                  chain_id = c(1,2,3,4), control = list(adapt_delta=0.97, max_treedepth = 11))
   
   ####### Save Stan output ###########
   
