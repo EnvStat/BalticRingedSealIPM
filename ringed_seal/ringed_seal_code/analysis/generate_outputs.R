@@ -4,7 +4,6 @@
 ###################################### GENERATE PLOTS ###############################################
 ###################################################################################################### 
 
-
 ######################## Plot total population size ############################
 
 label_k = function(x, s) {
@@ -19,7 +18,7 @@ K.scale <- 0.12 # scaling of second y-axis for the carrying capacity
 ggplot() +
   geom_ribbon(aes(x=c(data$years, 2023), ymin=N.quantiles[,1], ymax=N.quantiles[,3], fill='gray16'), alpha=0.25) +
   geom_line(aes(x=c(data$years, 2023), y=N.quantiles[,2]), linewidth=1) +
-  geom_ribbon(aes(x=c(2025,2026), ymin=0, ymax=0, fill='#369ACC'), alpha=0) +
+  geom_ribbon(aes(x=c(2025,2026), ymin=0, ymax=0, fill='#369ACC')) +
   geom_ribbon(aes(x=c(2025,2026), 
                   ymin=K.scale*quantile(samples$K, quantiles[1]), ymax=K.scale*quantile(samples$K, quantiles[3]), 
                   fill='#75CE87',), alpha=0.75) +
